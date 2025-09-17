@@ -8,10 +8,10 @@ insert into categoria (nome) values
 ('Móveis'),
 ('Eletrodomésticos');
 
-insert into produto (nome, preco, descricao) values
-('Smartphone', 1500.00, 'Smartphone com 4GB de RAM e 128GB de armazenamento'),
-('Sofá', 1200.00, 'Sofá de 3 lugares com tecido impermeável'),
-('Geladeira', 2500.00, 'Geladeira frost-free com 380 litros de capacidade');
+insert into produto (nome, preco, descricao, quantidade_estoque) values
+('Smartphone', 1500.00, 'Smartphone com 4GB de RAM e 128GB de armazenamento', 10),
+('Sofá', 1200.00, 'Sofá de 3 lugares com tecido impermeável', 10),
+('Geladeira', 2500.00, 'Geladeira frost-free com 380 litros de capacidade', 10);
 
 insert into categoria_produto (categoria_id, produto_id) values
 (1, 1),

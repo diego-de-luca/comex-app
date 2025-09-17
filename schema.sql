@@ -18,7 +18,8 @@ drop table if exists categoria;
 
 create table categoria (
 id bigint auto_increment primary key,
-nome varchar(100)
+nome varchar(100),
+status varchar(20) default 'ATIVA' not null
 );
 
 
@@ -28,7 +29,8 @@ create table produto (
     id bigint auto_increment primary key,
     nome varchar(100),
     preco decimal(10,2),
-    descricao varchar(1000)
+    descricao varchar(1000),
+    quantidade_estoque int
 );
 
 create table categoria_produto (

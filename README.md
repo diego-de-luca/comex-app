@@ -10,7 +10,7 @@ Transforme o projeto em um projeto Maven para facilitar a gestão de dependênci
 
 #### Passos:
 1. Crie um arquivo `pom.xml` na raiz do projeto.
-2. Adicione as dependências necessárias, como `h2 connector` e `junit`.
+2. Adicione as dependências necessárias, como `PostgreSQL connector` e `junit`.
 3. Configure o plugin do Maven para compilar e testar o projeto.
 
 ### 2. Organizar o Projeto em Módulos

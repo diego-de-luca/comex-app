@@ -1,18 +1,29 @@
 package br.com.alura.comex.model;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.ManyToOne;
+import jakarta.persistence.Table;
 
+@Entity
+@Table(name = "produto")
 public class Produto {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     private String nome;
+
     private String descricao;
 
     private double preco;
-    private List<Categoria> categorias = new ArrayList<>();
 
+    private int quantidadeEstoque;
+
+    @ManyToOne
+    private Categoria categoria;
 
     public Long getId() {
         return id;
@@ -46,29 +57,31 @@ public class Produto {
         this.preco = preco;
     }
 
-    public List<Categoria> getCategorias() {
-        return Collections.unmodifiableList(categorias);
+    public int getQuantidadeEstoque() {
+        return quantidadeEstoque;
     }
 
-    public void adicionaCategoria(Categoria categoria) {
-        // verifica se a categoria já foi adicionada com base no id
-        for (Categoria categoriaDaLista : categorias) {
-            if (categoriaDaLista.getId().equals(categoria.getId())) {
-                return;
-            }
-        }
+    public void setQuantidadeEstoque(int quantidadeEstoque) {
+        this.quantidadeEstoque = quantidadeEstoque;
+    }
 
-        this.categorias.add(categoria);
+    public Categoria getCategoria() {
+        return categoria;
+    }
+
+    public void setCategoria(Categoria categoria) {
+        this.categoria = categoria;
     }
 
     @Override
     public String toString() {
-        return "Produto{" +
-                "id=" + id +
-                ", nome='" + nome + '\'' +
-                ", descricao='" + descricao + '\'' +
+        return "Produto{"
+                + "id=" + id +
+                ", nome='" + nome + "'" +
+                ", descricao='" + descricao + "'" +
                 ", preco=" + preco +
-                ", categorias=" + categorias +
+                ", quantidadeEstoque=" + quantidadeEstoque +
+                ", categoria=" + categoria +
                 '}';
     }
 }
