@@ -22,7 +22,7 @@ public class CategoriaController {
     private CategoriaService service;
 
     @PostMapping
-    public ResponseEntity<Object> cadastra(@RequestBody @Valid RequestCategoria request, BindingResult result, UriComponentsBuilder uriBuilder){
+    public ResponseEntity<Object> cadastra(@RequestBody @Valid RequestCategoriaDto request, BindingResult result, UriComponentsBuilder uriBuilder){
 
         if(result.hasErrors()) {
             return ResponseEntity.badRequest().body(result.getAllErrors());
